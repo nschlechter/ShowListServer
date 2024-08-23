@@ -10,19 +10,17 @@ import java.util.UUID;
 @Entity
 @Getter
 @AllArgsConstructor
-public class VenueEntity {
+public class ArtistEntity {
 
     @Id
     private String id;
     private String name;
-    private String city;
-    private String state;
 
-    private VenueEntity() {
+    private ArtistEntity() {
         // do not use default constructor
     }
 
-    public VenueEntity(String name) {
+    public ArtistEntity(String name) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
     }

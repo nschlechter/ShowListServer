@@ -1,6 +1,8 @@
 package com.github.nschlechter.showlist.server;
 
+import com.github.nschlechter.showlist.server.dal.entity.ArtistEntity;
 import com.github.nschlechter.showlist.server.dal.entity.VenueEntity;
+import com.github.nschlechter.showlist.server.dal.repository.ArtistRepo;
 import com.github.nschlechter.showlist.server.dal.repository.VenueRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -19,8 +21,12 @@ import java.util.List;
 public class ShowlistServerApplication {
 
 	private static final Logger log = LoggerFactory.getLogger(ShowlistServerApplication.class);
+	// adding beans here just to ensure that app startup is finding them correctly
 	@Autowired
 	VenueRepo venueRepo;
+
+	@Autowired
+	ArtistRepo artistRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShowlistServerApplication.class, args);
@@ -30,15 +36,13 @@ public class ShowlistServerApplication {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			System.out.println("Let's inspect the beans provided by Spring Boot:");
+			System.out.println("Hello world!");
 			venueRepo.save(new VenueEntity("Red rocks"));
 			List<VenueEntity> venues = (List<VenueEntity>) venueRepo.findAll();
 			log.info("Venue added: {}", venues.get(0).getName());
-//			String[] beanNames = ctx.getBeanDefinitionNames();
-//			for (String beanName : beanNames) {
-//				System.out.println(beanName);
-//			}
 
+			artistRepo.save(new ArtistEntity("Flume"));
+			log.info("Artist added: {}", artistRepo.findAll().iterator().next().getName());
 		};
 	}
 }
