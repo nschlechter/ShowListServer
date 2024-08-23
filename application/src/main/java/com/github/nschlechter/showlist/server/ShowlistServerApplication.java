@@ -1,7 +1,7 @@
-package com.github.nschlechter.showlist_server;
+package com.github.nschlechter.showlist.server;
 
-import com.github.nschlechter.data.entity.VenueEntity;
-import com.github.nschlechter.data.repository.VenueRepo;
+import com.github.nschlechter.showlist.server.dal.entity.VenueEntity;
+import com.github.nschlechter.showlist.server.dal.repository.VenueRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

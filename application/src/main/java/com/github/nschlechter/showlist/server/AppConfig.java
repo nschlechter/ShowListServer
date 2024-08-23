@@ -1,4 +1,4 @@
-package com.github.nschlechter.showlist_server;
+package com.github.nschlechter.showlist.server;
 
 import org.springframework.context.annotation.Configuration;
 

@@ -1,4 +1,4 @@
-package com.github.nschlechter.data.entity;
+package com.github.nschlechter.showlist.server.dal.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

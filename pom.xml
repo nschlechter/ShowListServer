@@ -8,12 +8,17 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.github.nschlechter</groupId>
+
+	<groupId>com.github.nschlechter.showlist.server</groupId>
 	<artifactId>showlist-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+
+
 	<packaging>pom</packaging>
 	<name>showlist-server</name>
 	<description>Show List Backend Server</description>
+
+
 	<url/>
 	<licenses>
 		<license/>
@@ -22,7 +27,7 @@
 		<developer/>
 	</developers>
 	<modules>
-		<module>data</module>
+		<module>dal</module>
 		<module>application</module>
 	</modules>
 	<scm>
