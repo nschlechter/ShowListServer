@@ -7,7 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Entity
 @Builder
@@ -23,10 +25,10 @@ public class PublicShowEntity {
     private String venueId;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date date;
+    private LocalDate date;
 
     @DateTimeFormat(pattern = "HH:mm:ss")
-    private Date time;
+    private LocalTime time;
 
     private PublicShowEntity() {
         // do not use default constructor

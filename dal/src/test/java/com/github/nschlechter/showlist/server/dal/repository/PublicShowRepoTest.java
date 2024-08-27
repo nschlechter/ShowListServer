@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.time.Instant;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @ContextConfiguration(classes = TestDataConfig.class)
@@ -34,7 +33,7 @@ public class PublicShowRepoTest {
     }
 
     private PublicShowEntity getPublicShowEntity() {
-        return PublicShowEntity.builder().id(UUID.randomUUID().toString()).artistId(UUID.randomUUID().toString()).venueId(UUID.randomUUID().toString()).date(Date.from(Instant.now())).build();
+        return PublicShowEntity.builder().id(UUID.randomUUID().toString()).artistId(UUID.randomUUID().toString()).venueId(UUID.randomUUID().toString()).date(LocalDate.now()).build();
     }
 
     private void assertEquals(PublicShowEntity expected, PublicShowEntity actual) {
