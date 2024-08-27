@@ -3,11 +3,15 @@ package com.github.nschlechter.showlist.server.dal.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 @Entity
+@Builder
+@Getter
 @AllArgsConstructor
 public class PublicShowEntity {
 
