@@ -2,11 +2,13 @@ package com.github.nschlechter.showlist.server.dal.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.UUID;
 
+@Table(name = "venue")
 @Entity
 @Getter
 @AllArgsConstructor

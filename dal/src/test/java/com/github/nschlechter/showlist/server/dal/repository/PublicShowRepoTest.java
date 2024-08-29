@@ -1,7 +1,9 @@
 package com.github.nschlechter.showlist.server.dal.repository;
 
+import com.github.nschlechter.showlist.server.dal.TestConstantHelper;
 import com.github.nschlechter.showlist.server.dal.TestDataConfig;
 import com.github.nschlechter.showlist.server.dal.entity.PublicShowEntity;
+import com.github.nschlechter.showlist.server.dal.entity.VenueEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,12 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ContextConfiguration;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @ContextConfiguration(classes = TestDataConfig.class)
 @DataJpaTest
-public class PublicShowRepoTest {
+public class PublicShowRepoTest extends TestConstantHelper {
 
     @Autowired
     private PublicShowRepo repository;
@@ -33,14 +34,18 @@ public class PublicShowRepoTest {
     }
 
     private PublicShowEntity getPublicShowEntity() {
-        return PublicShowEntity.builder().id(UUID.randomUUID().toString()).artistId(UUID.randomUUID().toString()).venueId(UUID.randomUUID().toString()).date(LocalDate.now()).build();
+        VenueEntity v = new VenueEntity("venuetest");
+        String showId = UUID.randomUUID().toString();
+        PublicShowEntity show = new PublicShowEntity(showId, null, null, null, null);
+        //ShowArtistEntity artistEntity = getShowArtist(getArtist(), show);
+        //show.setArtists(Set.of(artistEntity));
+        return show;
     }
 
     private void assertEquals(PublicShowEntity expected, PublicShowEntity actual) {
         Assertions.assertEquals(expected.getId(), actual.getId(), "Id field is not equal");
-        Assertions.assertEquals(expected.getArtistId(), actual.getArtistId(), "Artist Id is not equal");
-        Assertions.assertEquals(expected.getVenueId(), actual.getVenueId(), "Venue Id is not equal");
-        // TODO - date conversions are not working as expected
+        Assertions.assertEquals(expected.getArtists(), actual.getArtists(), "Artist Id is not equal");
+        Assertions.assertEquals(expected.getVenue(), actual.getVenue(), "Venue Id is not equal");
         Assertions.assertEquals(expected.getDate(), actual.getDate(), "Date is not equal");
         Assertions.assertEquals(expected.getTime(), actual.getTime(), "Time is not equal");
     }

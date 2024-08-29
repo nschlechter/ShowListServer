@@ -1,7 +1,8 @@
 package com.github.nschlechter.showlist.server.dal.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -10,28 +11,28 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
-@Table(name = "user_show")
+@Table(name = "show_artist")
 @Entity
 @Builder
 @Getter
 @AllArgsConstructor
-public class UserShowEntity {
+public class ShowArtistEntity {
 
     @Id
     private String id;
 
-    private String userId;
+    @ManyToOne
+    @JoinColumn(name = "artist_id")
+    private ArtistEntity artist;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "public_show_id")
+    @ManyToOne
+    @JoinColumn(name = "show_id")
     private PublicShowEntity show;
 
-    // TODO - add column max and min constraints (maybe use double instead of int?)
-    private Integer rating;
+    @Enumerated(EnumType.STRING)
+    private ArtistShowType artistShowType;
 
-    private String notes;
-
-    private UserShowEntity() {
+    private ShowArtistEntity() {
         // do not use default constructor
     }
 }

@@ -33,6 +33,6 @@ public class PublicShowClientImpl implements PublicShowClient {
             return Page.empty();
         }
         // TODO - fix arbitrary page size
-        return publicShowRepo.findByArtistId(artistUuid.toString(), Pageable.ofSize(10));
+        return publicShowRepo.findByArtists(artistUuid.toString(), Pageable.ofSize(10));
     }
 }

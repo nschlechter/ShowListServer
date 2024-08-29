@@ -32,13 +32,13 @@ public class UserShowRepoTest {
     }
 
     private UserShowEntity getUserShow() {
-        return UserShowEntity.builder().id(UUID.randomUUID().toString()).userId(UUID.randomUUID().toString()).publicShowId(UUID.randomUUID().toString()).rating(4).build();
+        return UserShowEntity.builder().id(UUID.randomUUID().toString()).userId(UUID.randomUUID().toString()).show(null).rating(4).build();
     }
 
     private void assertEquals(UserShowEntity expected, UserShowEntity actual) {
         Assertions.assertEquals(expected.getId(), actual.getId(), "Id is not equal");
         Assertions.assertEquals(expected.getUserId(), actual.getUserId(), "User Id is not equal");
-        Assertions.assertEquals(expected.getPublicShowId(), actual.getPublicShowId(), "Public show Id is not equal");
+        Assertions.assertEquals(expected.getShow(), actual.getShow(), "Public show Id is not equal");
         Assertions.assertEquals(expected.getRating(), actual.getRating());
         Assertions.assertEquals(expected.getNotes(), actual.getNotes());
     }
