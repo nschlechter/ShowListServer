@@ -6,11 +6,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 
 @Table(name = "users")
 @Entity
-@Getter
+@Data
 @Builder
 @AllArgsConstructor
 public class UserEntity {

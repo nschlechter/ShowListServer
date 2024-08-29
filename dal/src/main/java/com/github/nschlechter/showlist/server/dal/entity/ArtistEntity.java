@@ -7,14 +7,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.Set;
 import java.util.UUID;
 
 @Table(name = "artist")
 @Entity
-@Getter
+@Data
+@ToString(exclude = "shows")
+@EqualsAndHashCode(exclude = "shows")
 @AllArgsConstructor
 public class ArtistEntity {
 
@@ -22,7 +26,7 @@ public class ArtistEntity {
     private String id;
     private String name;
 
-    @OneToMany(mappedBy = "artist", cascade = CascadeType.ALL, fetch = FetchType.LAZY) // lazy loading because we generally don't need this field
+    @OneToMany(mappedBy = "artist", cascade = CascadeType.DETACH, fetch = FetchType.LAZY) // lazy loading because we generally don't need this field
     private Set<ShowArtistEntity> shows;
 
     private ArtistEntity() {

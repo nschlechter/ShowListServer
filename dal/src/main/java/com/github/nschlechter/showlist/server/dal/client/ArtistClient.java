@@ -8,6 +8,8 @@ import java.util.UUID;
 
 public interface ArtistClient {
 
+    ArtistEntity saveArtist(ArtistEntity artistEntity);
+
     List<ArtistEntity> getAllArtists();
 
     Optional<ArtistEntity> getArtist(UUID uuid);

@@ -4,13 +4,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 
 import java.util.UUID;
 
 @Table(name = "venue")
 @Entity
-@Getter
+@Data
 @AllArgsConstructor
 public class VenueEntity {
 

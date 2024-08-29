@@ -8,12 +8,12 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 
 @Table(name = "user_show")
 @Entity
 @Builder
-@Getter
+@Data
 @AllArgsConstructor
 public class UserShowEntity {
 
