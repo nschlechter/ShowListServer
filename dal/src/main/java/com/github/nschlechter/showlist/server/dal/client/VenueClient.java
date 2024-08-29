@@ -9,6 +9,14 @@ import java.util.UUID;
 public interface VenueClient {
 
     /**
+     * Save the venue to the db. This will update if the venue already exists.
+     *
+     * @param venueEntity new venue to be saved.
+     * @return venue entity successfully saved in db.
+     */
+    VenueEntity saveVenue(VenueEntity venueEntity);
+
+    /**
      * Get all venues in the db.
      * @return list of venues.
      */
@@ -16,7 +24,7 @@ public interface VenueClient {
 
     /**
      * Get venue entity by id.
-     * @param id uuid
+     * @param uuid uuid
      * @return venue with given id.
      */
     Optional<VenueEntity> getVenue(UUID uuid);

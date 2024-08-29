@@ -18,6 +18,11 @@ public class VenueClientImpl implements VenueClient {
     @Autowired private VenueRepo venueRepo;
 
     @Override
+    public VenueEntity saveVenue(VenueEntity venueEntity) {
+        return venueRepo.save(venueEntity);
+    }
+
+    @Override
     public List<VenueEntity> getVenues() {
         return venueRepo.findAll();
     }

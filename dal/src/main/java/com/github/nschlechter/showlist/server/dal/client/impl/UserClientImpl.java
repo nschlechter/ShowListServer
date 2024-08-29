@@ -17,6 +17,11 @@ public class UserClientImpl implements UserClient {
     @Autowired private UserRepo userRepo;
 
     @Override
+    public UserEntity saveUser(UserEntity user) {
+        return userRepo.save(user);
+    }
+
+    @Override
     public Optional<UserEntity> getUser(UUID uuid) {
         if(uuid == null) {
             return Optional.empty();

@@ -8,6 +8,14 @@ import java.util.UUID;
 public interface UserClient {
 
     /**
+     * Save a new user to the db.
+     *
+     * @param user to be saved.
+     * @return the user now saved in the db.
+     */
+    UserEntity saveUser(UserEntity user);
+
+    /**
      * Retrieve, if exists, the user with the given uuid.
      * @param uuid non-null id.
      * @return user entity, if exists.

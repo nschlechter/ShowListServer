@@ -16,6 +16,11 @@ public class UserShowClientImpl implements UserShowClient {
     @Autowired private UserShowRepo userShowRepo;
 
     @Override
+    public UserShowEntity saveUserShow(UserShowEntity userShowEntity) {
+        return userShowRepo.save(userShowEntity);
+    }
+
+    @Override
     public Page<UserShowEntity> getAllUserShows(UUID userId) {
         if(userId == null) {
             return Page.empty();
